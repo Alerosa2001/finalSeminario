@@ -1,32 +1,14 @@
-package com.example.demo.models;
+package com.example.demo.dto.request;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
-@Entity
-@Table(name="user")
-public class UserModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column
+public class UserRequestDTO {
     private String firstName;
-    @Column
     private String lastName;
-    @Column
     private String email;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;

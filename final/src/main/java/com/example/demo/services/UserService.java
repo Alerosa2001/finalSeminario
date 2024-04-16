@@ -2,7 +2,6 @@ package com.example.demo.services;
 
 import com.example.demo.models.UserModel;
 import com.example.demo.repositories.IUserRepository;
-import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +13,7 @@ public class UserService {
 
     @Autowired
     IUserRepository userRepository;
+
     public ArrayList<UserModel> getUsers(){
         return (ArrayList<UserModel>) userRepository.findAll();
     }
@@ -27,7 +27,7 @@ public class UserService {
     }
 
     public UserModel updateById(UserModel  request, Long id ){
-      UserModel user = userRepository.findById(id).get();
+        UserModel user = userRepository.findById(id).get();
 
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
@@ -40,9 +40,8 @@ public class UserService {
         try {
             userRepository.deleteById(id);
             return true;
-
         } catch (Exception e) {
             return false;
-
         }
-    }}
+    }
+}
